@@ -39,4 +39,10 @@ public class MovieService {
         }
         return null;
     }
+
+    public List<Movie> searchMovies(String query) {
+        // This is a basic implementation. You might want to refine it based on your needs.
+        return movieRepository.findByTitleContainingIgnoreCase(query);
+    }
+
 }

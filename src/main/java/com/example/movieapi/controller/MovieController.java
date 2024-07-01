@@ -26,6 +26,12 @@ public class MovieController {
         return movie.map(ResponseEntity::ok).orElseGet(() -> ResponseEntity.notFound().build());
     }
 
+    @GetMapping("/search")
+    public List<Movie> searchMovies(@RequestParam String query) {
+        return movieService.searchMovies(query);
+    }
+
+
     @PostMapping
     public Movie createMovie(@RequestBody Movie movie) {
         return movieService.saveMovie(movie);
